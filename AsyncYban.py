@@ -8,6 +8,7 @@ import time
 from base64 import b64encode
 import json
 import config
+import random
 
 # 密钥
 AES_KEY = '2knV5VGRTScU7pOq'
@@ -72,7 +73,14 @@ def fromIntGetTimePeriod():
         time.strftime("%Y-%m-01 00:00:00", time.localtime(int(time.time()))),
         time.strftime("%Y-%m-%d 23:59:59", time.localtime(int(time.time())))
     ]
-
+def csrf():
+    # 随机字符串
+    seef = "1234567890abcdefghijklmnopqrstuvwxyz"
+    seef_list = []
+    for i in range(32):
+        seef_list.append(random.choice(seef))
+    StringS = ''.join(seef_list)
+    return StringS
 
 # 主程序
 
@@ -81,7 +89,7 @@ class asYiban():
     def __init__(self, mobile, password):
         self.mobile = mobile
         self.password = password
-        self.CSRF = "64b5c616dc98779ee59733e63de00dd5"
+        self.CSRF = csrf()
         self.HEADERS={"Origin": "'https://m.yiban.cn", 'AppVersion': '5.0.1', "User-Agent": "YiBan/5.0.1"}
         self.COOKIES={"csrf_token": self.CSRF}
     async def aioyiban(self):
