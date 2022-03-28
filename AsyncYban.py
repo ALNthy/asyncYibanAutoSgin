@@ -187,7 +187,6 @@ class asYiban():
             for now_task_id in task_id:
                 if now_task_id["State"] == 0:
                     detail = await self.getDetail(taskId=now_task_id["TaskId"])
-                    print(task_id)
                     extend = {
                         "TaskId": now_task_id["TaskId"],
                         "title": "任务信息",
@@ -202,8 +201,7 @@ class asYiban():
                         i = i + 1
                     else:
                         p = p + 1
-                    return f"账号共执行{len(task_id)}个打卡任务操作,成功{i}个,失败{p}个"
-            return f"账号{self.mobile}共找到{len(task_id)}个任务,其中{len(task_id)}个任务无法操作"
+            return f"账号{self.mobile}找到{len(task_id)}个打卡任务,打卡成功{i}个,失败{p}个,其中有{len(task_id)-i-p}个任务无法操作"
 
     async def aioyiban(self):
         """
