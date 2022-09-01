@@ -19,14 +19,16 @@ task_once = {
 #   password:密码
 # -------------
 user = [
-    {"Account": "admin",
-     "password": "123456"
-     }
+    {
+        "Account": "admin",
+        "password": "admin"
+    }
 ]
 
 # 密钥
 AES_KEY = '2knV5VGRTScU7pOq'
 AES_IV = 'UmNWaNtM0PUdtFCs'
+
 
 # 解密
 def aes_decrypt(aes_key, aes_iv, data):

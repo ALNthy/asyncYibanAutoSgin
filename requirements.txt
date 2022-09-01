@@ -1,0 +1,2 @@
+httpx==0.23.0
+pycryptodome==3.15.0

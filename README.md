@@ -6,10 +6,8 @@
 pyhton=3.10
 
 安装依赖
-```python
-pip install pycryptodome
-pip install httpx
-```
+
+>pip install -r requirements.txt
 
 ### 使用方法
 
